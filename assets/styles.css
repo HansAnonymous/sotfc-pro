@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap');
+
+* {
+	font-family: Oxygen, sans-serif;
+}
+
+html {
+	background-color: #080719;
+}
+
+:root {
+	--sotfc-accent: #6EFAFB;
+	--sotfc-accent-fade: rgba(110, 250, 251, 0.85);
+	--sotfc-primary: #1D335E;
+	--sotfc-secondary: #0b6f50;
+	--sotfc-tertiary: #d60051;
+	--softc-bg: #080719;
+}
