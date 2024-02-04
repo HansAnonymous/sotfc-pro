@@ -1,5 +1,6 @@
 <template>
-	<Galleria :value="images" :numVisible="5" :showThumbnails="false" :showIndicators="true"
+	<Skeleton v-if="!images" height="432px" class="w-full mx-auto md:max-w-3xl"></Skeleton>
+	<Galleria v-else :value="images" :numVisible="5" :showThumbnails="false" :showIndicators="true"
 		:changeItemOnIndicatorHover="false" :indicatorsPosition="'bottom'" :show-item-navigators="true"
 		:show-item-navigators-on-hover="true" :auto-play="true" :circular="true" :pt="{
 			indicators: 'pt-2',
@@ -7,7 +8,7 @@
 			nextItemButton: 'hover:bg-gray-300/20 p-ripple absolute',
 		}">
 		<template #item="slotProps">
-			<img :src="'_nuxt/' + slotProps.item.itemImageSrc" :alt="slotProps.item.alt" class="w-full block rounded-xl" />
+			<img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" class="w-full block rounded-xl" />
 		</template>
 		<template #caption="slotProps">
 			<div class="text-xl mb-2 font-bold">{{ slotProps.item.title }}</div>
@@ -102,6 +103,7 @@ const { data: latestGame } = await useAsyncData("latestGame", async () => {
 	const { data, error } = await client
 		.from("sotfc_minigames")
 		.select("*")
+		.eq("published", true)
 		.order("date", { ascending: false })
 		// .eq("week_number", 19)
 		.limit(1).returns<Tables<"sotfc_minigames">>();
@@ -115,6 +117,7 @@ const { data: latestWinners } = await useAsyncData("latestWinners", async () => 
 	const { data: latestGameData, error: latestGameError } = await client
 		.from("sotfc_minigames")
 		.select("*")
+		.eq("published", true)
 		.order("date", { ascending: false })
 		.limit(1).returns<Tables<"sotfc_minigames">>();
 

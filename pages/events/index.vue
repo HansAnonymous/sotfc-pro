@@ -1,6 +1,6 @@
 <template>
 	<Head>
-		<Title>SOTFC - Events</Title>
+		<Title>Events - SOTFC</Title>
 	</Head>
 	<h1 class="text-center text-5xl py-6 font-bold">Events</h1>
 	<table class="table">

@@ -14,18 +14,21 @@ export interface Database {
           date: string
           id: number
           name: string
+          published: boolean
           week_number: number
         }
         Insert: {
           date: string
           id?: number
-          name: string
+          name?: string
+          published?: boolean
           week_number: number
         }
         Update: {
           date?: string
           id?: number
           name?: string
+          published?: boolean
           week_number?: number
         }
         Relationships: []
@@ -73,7 +76,9 @@ export interface Database {
           member_since: string
           name: string
           notes: string
+          tags: string[] | null
           username: string
+          uuid: string
         }
         Insert: {
           color?: string
@@ -81,7 +86,9 @@ export interface Database {
           member_since: string
           name?: string
           notes?: string
+          tags?: string[] | null
           username?: string
+          uuid: string
         }
         Update: {
           color?: string
@@ -89,7 +96,9 @@ export interface Database {
           member_since?: string
           name?: string
           notes?: string
+          tags?: string[] | null
           username?: string
+          uuid?: string
         }
         Relationships: []
       }
@@ -97,12 +106,14 @@ export interface Database {
     Views: {
       sotfc_summary: {
         Row: {
-          minigame: string
-          minigame_id: number
-          placement: number
-          placement_id: number
-          player: string
-          player_id: number
+          date: string | null
+          minigame: string | null
+          minigame_id: number | null
+          placement: number | null
+          placement_id: number | null
+          player: string | null
+          player_id: number | null
+          week_number: number | null
         }
         Relationships: [
           {

@@ -1,4 +1,9 @@
 <template>
+	<Head>
+		<Title>
+			Leaderboard - SOTFC
+		</Title>
+	</Head>
 	<h1 class="text-center text-5xl py-6 font-bold">Leaderboard</h1>
 	<table class="table">
 		<tr class="cursor-default bg-slate-900/50">

@@ -1,5 +1,5 @@
 <template>
-	<Card class="">
+	<Card class="bg-sky-600/10">
 		<template #content>
 			<div class="content">
 				<slot name="content"></slot>
