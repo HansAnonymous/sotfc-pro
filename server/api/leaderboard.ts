@@ -19,12 +19,13 @@ export default defineEventHandler(async (event) => {
 	registerFont('./assets/Minecraft.otf', { family: 'SOTFC' })
 
 	// Draw background
-	const grad = ctx.createRadialGradient(704, 160, 0, 704, 160, 933.31);
+	// const grad = ctx.createRadialGradient(704, 160, 0, 704, 160, 933.31);
 
-	grad.addColorStop(0, 'rgba(125, 165, 148, 1)');
-	grad.addColorStop(1, 'rgba(79, 212, 207, 1)');
+	// grad.addColorStop(0, 'rgba(125, 165, 148, 1)');
+	// grad.addColorStop(1, 'rgba(79, 212, 207, 1)');
 
-	ctx.fillStyle = grad;
+	// ctx.fillStyle = grad;
+	ctx.fillStyle = "#4fd4cf";
 	ctx.fillRect(0, 0, 1408, 640);
 
 	const { data, error } = await client
@@ -34,6 +35,7 @@ export default defineEventHandler(async (event) => {
 
 	const leaderboard: { [name: string]: { name: string; points: number } } = {};
 	for (let p of data!) {
+		if (!p.player || !p.placement || p.placement > 3 || p.player === 'No Placements!') continue;
 		let currentPoints = leaderboard[p.player]?.points || 0;
 		leaderboard[p.player] = {
 			name: p.player,

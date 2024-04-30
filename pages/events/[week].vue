@@ -145,6 +145,7 @@ const { data: latestWinners } = await useAsyncData("latestWinners", async () => 
 	const { data, error } = await client
 		.from("sotfc_summary")
 		.select("*")
+		.eq("published", true)
 		.eq("week_number", route.params.week)
 		.returns<Tables<"sotfc_summary">[]>();
 

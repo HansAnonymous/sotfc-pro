@@ -133,6 +133,7 @@ const { data: minigamesWon } = await useAsyncData("minigamesWon", async () => {
 	const { data, error } = await client
 		.from("sotfc_summary")
 		.select("week_number, minigame, placement, date, minigame_id")
+		.eq("published", true)
 		.order("date", { ascending: false })
 		.eq("player", route.params.username);
 
@@ -148,6 +149,7 @@ const { data: placementWins } = await useAsyncData("placementWins", async () => 
 	const { data, error } = await client
 		.from("sotfc_summary")
 		.select("placement")
+		.eq("published", true)
 		.eq("player", route.params.username);
 
 	if (error) {

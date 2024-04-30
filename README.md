@@ -3,8 +3,7 @@
 Make sure to install the dependencies:
 
 ```bash
-# pnpm
-pnpm install
+yarn install
 ```
 
 ## Scaffold Database
@@ -18,8 +17,7 @@ supabase gen types typescript --project-id ufkxwhxtmmjkgedlkikl > types/database
 Start the development server on `http://localhost:3000`:
 
 ```bash
-# pnpm
-pnpm run dev
+yarn dev
 ```
 
 ## Production
@@ -27,13 +25,17 @@ pnpm run dev
 Build the application for production:
 
 ```bash
-# pnpm
-pnpm run build
+yarn build
 ```
 
 Locally preview production build:
 
 ```bash
-# pnpm
-pnpm run preview
+yarn preview
+```
+
+Serve on production:
+
+```bash
+yarn start
 ```

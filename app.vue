@@ -1,4 +1,5 @@
 <template>
+
   <Head>
     <Title>SOTFC</Title>
   </Head>
@@ -57,7 +58,11 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  filter: blur(8px);
+  filter: blur(18px) brightness(2);
+
+  @media (prefers-color-scheme: dark) {
+    filter: blur(8px) brightness(1);
+  }
 }
 
 .content {

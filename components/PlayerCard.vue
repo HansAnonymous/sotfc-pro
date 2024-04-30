@@ -10,7 +10,8 @@
 					<div class="tag-container" v-for="tag, index in player.tags" :key="index">
 						<Tag v-if="tag === 'Host'" :value="tag" severity="success" />
 						<Tag v-else-if="tag === 'Developer'" :value="tag" severity="info" />
-						<Tag v-else :value="tag" />
+						<Tag v-else-if="tag === 'Builder'" :value="tag" severity="warning" />
+						<Tag v-else :value="tag" severity="danger" />
 					</div>
 				</div>
 				<p class="member-since">

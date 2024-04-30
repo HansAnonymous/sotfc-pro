@@ -1,4 +1,5 @@
 <template>
+
 	<Head>
 		<Title>Events - SOTFC</Title>
 	</Head>
@@ -28,6 +29,7 @@ const { data: events } = await useAsyncData("events", async () => {
 	const { data, error } = await client
 		.from("sotfc_minigames")
 		.select("*")
+		.eq("published", true)
 		.order("date", { ascending: false })
 		.returns<Tables<"sotfc_minigames">[]>();
 	if (error) {

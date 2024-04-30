@@ -20,7 +20,8 @@ const {
 
 <style scoped lang="postcss">
 .nameplate {
-	@apply flex gap-3 hover:bg-slate-200/10 p-1 rounded;
+	@apply transition-all;
+	@apply flex gap-3 dark:hover:bg-slate-200/10 hover:bg-slate-800/30 p-1 rounded;
 }
 
 .username {

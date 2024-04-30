@@ -1,4 +1,5 @@
 <template>
+
 	<Head>
 		<Title>
 			Leaderboard - SOTFC
@@ -39,6 +40,7 @@ const { data: placements } = await useAsyncData("placements", async () => {
 	const { data, error } = await client
 		.from("sotfc_summary")
 		.select("*")
+		.eq("published", true)
 		.returns<Tables<"sotfc_summary">[]>();
 
 	if (error) {
@@ -47,6 +49,7 @@ const { data: placements } = await useAsyncData("placements", async () => {
 	}
 	const leaderboard: { [name: string]: { name: string; points: number } } = {};
 	for (let p of data) {
+		if (!p.player || !p.placement || p.placement > 3 || p.player === 'No Placements!') continue;
 		let currentPoints = leaderboard[p.player]?.points || 0;
 		leaderboard[p.player] = {
 			name: p.player,
